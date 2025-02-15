@@ -5,11 +5,11 @@ categories:
   - Career
 tags:
   - Career
-summary: 이력서 개선 과정
+summary: 이력서 팁 모음, 내 이력서 개선 상황
 ---
 
 
-## 1차 이력서 피드백(by kilii)
+## 1차 이력서 피드백
 OKKY 에서 19년차 개발자분이 무료로 멘토링해주신다는 글을 보고 카톡으로 연락을 드리고 막 완성한 이력서와 포트폴리오를 전달드렸다. 곧 답장이 오셨는데 전화번호를 알려달라 하셔서 처음에는당황하였다. 무료로 해주신다해서 그냥 카톡으로 해주시고 마는줄 알았는데 전화까지 주셨다. 좋은 기회여서 바로 전화번호를 드렸고, 그리하여 전화로 멘토링을 받게되었는데...
 
 100% 떨어지는 이력서라고 먼저 말씀해주셔서 사고가 멈추었었다. 사실 이정도면 준수한거 아닌가라고 생각을하고 있었는데... 100%떨어진다고 말씀주신후에 그 이유를 들으니 충분히 납득이 갔다. 정리하자면 이렇다.
@@ -22,7 +22,8 @@ OKKY 에서 19년차 개발자분이 무료로 멘토링해주신다는 글을 �
 하~ 솔직히 멘토링 후 1시간 동안은 좀 울적했었는데 이후에는 이렇게 피드백을 받으니 앞으로 할 일이 명확해져서 좋은거 아니겠냐하는 마인드로 바꾸고 다시 처음부터 이력서와 포트폴리오를 만들기 시작했다. 참 감사한분이다. 마지막에 요즘 경기가 최악이니 포기하지말고 해라는 말씀도 해주시고 너무 감사했다.
 
 ## 2곳 중 1곳은 무조건 합격하는 개발자 이력서 만들기
-https://www.youtube.com/watch?v=ifGUz43GjdQ&ab_channel=%EC%9D%B8%ED%94%84%EB%9F%B0inflearn
+[링크](https://www.youtube.com/watch?v=ifGUz43GjdQ&ab_channel=%EC%9D%B8%ED%94%84%EB%9F%B0inflearn)
+
 - 마음가짐: 낙담하지 않기. 중꺽마...
 - 이력서는 dry doc. 미사여구 노
 - 컴팩트를 만드는것도 능력
@@ -35,12 +36,15 @@ https://www.youtube.com/watch?v=ifGUz43GjdQ&ab_channel=%EC%9D%B8%ED%94%84%EB%9F%
 	- AS-IS: 문제상황 인지, 해결하려고 하는 문제, 만들고 싶은 기능
 	- Challenge: 해결위해 고민한 내용, 어떻게 기술적으로 해결했는지
 	- TO-BE: 아웃풋(결과)
-	- ![](../../images/SCR-20250214-lljm.png)
-	- ![](../../images/SCR-20250214-lloe.png)
-	- ![](../../images/SCR-20250214-llxi.png)
+
+![](SCR-20250214-lljm.png)
+
+![](SCR-20250214-lloe.png)
+
+![](SCR-20250214-llxi.png)
 
 ## # 잘 못써도 합격하는 개발자 이력서
-https://www.youtube.com/watch?v=FOzAGjqiTc0&t=1s&ab_channel=%EA%B0%9C%EB%B0%9C%EB%B0%94%EB%8B%A5
+[링크](https://www.youtube.com/watch?v=FOzAGjqiTc0&t=1s&ab_channel=%EA%B0%9C%EB%B0%9C%EB%B0%94%EB%8B%A5)
 
 - 기술적 이야기 녹일수 있는건 상세링크 넣기
 - 기술적 고민, 트레이드오프 고민

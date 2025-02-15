@@ -22,7 +22,7 @@ tags:
 3. 클라이언트는 signed URL을 사용하여 S3에 직접 데이터를 업로드/다운로드
 
 다음 그림은 signed URL 생성하는 과정에대한 시퀀스 다이어그램
-![](../../images/Pasted%20image%2020250213195300.png)
+![](../../../images/Pasted%20image%2020250213195300.png)
 
 
 ```java S3Service.java

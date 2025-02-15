@@ -24,7 +24,7 @@ draft: true
 - MUI를 사용하기로 결정
 - 아래는 연습결과
 - 24.12.26일까지 프로토타입 만들것
-![](../../images/mycodingtest01.png)
+![](../../../images/mycodingtest01.png)
 
 ### 24.12.25
 - 크롬 익스텐션 크게 개선
@@ -74,9 +74,9 @@ draft: true
   - 공식문서에 설명도 잘 되어 있어서 쓰기가 너무 좋다
   - 디자인, 기능 다 훌륭하다. 내가 원한게 다 있음
 - 중간 결과물
-![](../../images/241228front.png)
+![](../../../images/241228front.png)
 - ERD 설계도
-![ERD](../../images/myCodingTestERD.png)
+![ERD](../../../images/myCodingTestERD.png)
 - 이렇게 작성하니 좀 정리가 된다. 이제 백엔드 개발에 속도 붙을거 같음.
 - 하루종일 ERD 만드는데 집중. 제대로 만들어진것일까?
 - Chrome Extesion에서 만드는 JSON 아래와 같이 수정
@@ -104,7 +104,7 @@ draft: true
 - 사용해본 MongoDB와 DynamoDB중 DynamoDB를 써보기로 함. 왜냐하면 DynamoDB가 무료로 사용해도 15GB 나 주기 때문. 그에 비해 MongoDB는 겨우 500MB만 준다...
 - MongoDB를 작년에 써봤어서 익숙하긴한데 용량차이가 너무 큼. 글과 코드를 저장해야하는데 500MB는 너무 작다.
 - 간단히 백엔드 배포 다이어그램 만들어 보았음
-![](../../images/mycodingtest_BE_deploy.png)
+![](../../../images/mycodingtest_BE_deploy.png)
 - 내일부터는 스프링 개발에 집중
 - ERD도 약간수정하고서 개발에 몰입하자
 ### 24.12.28
@@ -136,7 +136,7 @@ draft: true
   - 다행히 왜 이상했는지 이해가 되었고 전보다 나은 코드가 됨.
   - 객체(엔티티)간에 관계파악이 중요하구나. 
 - 프로트 디자인 피그마로 간단히 설계 완료.
-![](../../images/SCR-20250101-sypu.png)
+![](../../../images/SCR-20250101-sypu.png)
 ### 25.01.03
 - Swagger 설정 완료
 - Swagger 로 모든 기능 정상작동 확인!

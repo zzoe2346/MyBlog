@@ -19,7 +19,7 @@ category: MyCodingTest
 - 쿠키에 httpOnly=true, secure=true, sameSite=None 속성을 적용하여 XSS 및 CSRF 공격 방지
 
 다음 그림은 JwtFilter 의 흐름을 간단히 다이어그램으로 표현
-![](../../images/Pasted%20image%2020250213192721.png)
+![](../../../images/Pasted%20image%2020250213192721.png)
 
 ```java JwtFilter.java 
 package com.mycodingtest.security;  

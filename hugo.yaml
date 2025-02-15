@@ -15,9 +15,9 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: ExampleSite
-  description: "ExampleSite description"
-  keywords: [ Blog, Portfolio, PaperMod ]
+  title: 개발자 정성훈의 블로그
+  description: "Personal Blog Written By Seonghun"
+  keywords: [ Blog, Portfolio, 블로그, 개발, 개발자, 백엔드, 기술, 기술블로그 ]
   author: 정성훈
   # author: ["Me", "You"] # multiple authors
   images: [ "<link or path of image for opengraph, twitter-cards>" ]
@@ -26,8 +26,8 @@ params:
   disableThemeToggle: false
 
   ShowReadingTime: false
-  ShowShareButtons: true
-  ShareButtons: ["linkedin", "kakaotalk"]
+  ShowShareButtons: false
+  ShareButtons: [ "linkedin", "kakaotalk" ]
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true # 원래 false
@@ -47,7 +47,7 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
+    #favicon: /assets/logo.png
     favicon16x16: "<link / abs url>"
     favicon32x32: "<link / abs url>"
     apple_touch_icon: "<link / abs url>"
@@ -55,8 +55,8 @@ params:
 
   label:
     text: "Seonghun BLOG"
-    icon: /apple-touch-icon.png
-    iconHeight: 35
+  #    icon: /logo.png
+  #    iconHeight: 20
 
   # profile-mode
   profileMode:
@@ -75,15 +75,13 @@ params:
 
   # home-info mode
   homeInfoParams:
-    Title: "Web Developer"
-    Content:  >
-      👋 Welcome to demo page of Hugo's theme PaperMod!
+    Title: "🍀 Steady Growth"
+    Content: >
+      👋 방문해주셔서 감사합니다!
       
-      - **PaperMod**  is designed to be clean and simple but fast and responsive theme with useful feature-set that enhances UX.
+      - ☞ 개발자로서 트러블슈팅, 자기계발, 커리어, 기능개발, 행사후기 등의 글을 올리고 있습니다.    
       
-      - Feel free to show your support by giving us a star 🌟 on GitHub and sharing with your friends and social media .
-      
-      - PaperMod is based on theme [Paper](https://github.com/nanxiaobei/hugo-paper/tree/4330c8b12aa48bfdecbcad6ad66145f679a430b3).
+      - ☞ 우측 상단의 메뉴를 활용하시면 체계적으로 목록화된 글모음을 보실 수 있습니다.      
 
   socialIcons:
 
@@ -107,10 +105,10 @@ params:
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
 
-#  editPost:
-#    URL: "https://github.com/zzoe2346/MyBlog/content"
-#    Text: "update" # edit text
-#    appendFilePath: true # to append file path to Edit link
+  #  editPost:
+  #    URL: "https://github.com/zzoe2346/MyBlog/content"
+  #    Text: "update" # edit text
+  #    appendFilePath: true # to append file path to Edit link
 
   # for search
   # https://fusejs.io/api/options.html
@@ -145,7 +143,7 @@ markup:
     # anchorLineNos: true
     # codeFences: true
     # guessSyntax: true
-    # lineNos: true
+    lineNos: true
     # style: monokai
 
 disablePathToLower: true
