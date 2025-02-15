@@ -7,7 +7,7 @@ date: 2024-08-18
 ---
 ## 구현 계기
 아래 그림과 같은 기능을 구현하고 싶었습니다.
-![](../../images/twilio01.png)
+![](twilio01.png)
 먼저 국내에 이런 서비스가 존재하는지 확인을 해보았는데, 기존 통신사에서 인터넷전화를 제공하고 이와 관련된 API도 제공은 하는거 같은데 약정같은것도 해야되고 명확한 정보들을 찾지 못하였습니다. 대학생 수준의 프로젝트이고 개발과정이라서 통신사 약정같은것은 너무 부담이 되었습니다.
 
 그래서 해외까지 찾아보니 `Twilio`라는 회사를 발견하게 되었습니다. 이 회사는 메세지, 인증, 보이스등의 서비스를 제공해주는 [CPaaS](https://www.forbes.com/advisor/business/software/what-is-cpaas/) 회사입니다.
@@ -26,7 +26,7 @@ http://twilio.com
 전화번호 구입안하셔도 됩니다. 그냥 주는 번호 이용하셔도 무방합니다.
 #### Voice Geographic Permissions 가서 한국 허용
 Twilio Console 에서 왼측 사이드바에서 `Voice->Setting->Geo permissions` 에서 **한국 허용** 해주세요
-![](../../images/twilio02.png)
+![](twilio02.png)
 
 
 ### 2. Twilio의 POST요청 받을 서버 준비
@@ -54,11 +54,11 @@ Twilio에서 `{baseURL}/call` 로 POST 요청을 할때 처리할 코드입니�
 
 #### 3-1 스크린샷처럼 Active Numbers로가서 할당받은 번호 클릭
 
-![](../../images/twilio03.png)
+![](twilio03.png)
 
 #### 3-2 A call comes in 의 URL에 POST 받을 URL 기입
 
-![](../../images/twilio04.png)
+![](twilio04.png)
 
 
 ### 4. 전화걸기
@@ -85,13 +85,13 @@ Incoming call from: +82109****346 to: +12******847
 006은 SKT의 식별번호 입니다. 1은 미국의 식별번호입니다. 우리나라는 82인것처럼 미국은 1을 쓰는것입니다. 처음 해외에 전화를 걸어서 요금이 걱정되어 찾아보았는데요. 아래 링크로 가면
 https://www.sktelink.com/view/customer/notice_contents/205?page_num=1
 
-![](../../images/twilio05.png)
+![](twilio05.png)
 
 10초 정도 통화하면 240원... 비싸긴한데 다행히 저의 목적은 발신자 번호를 서버로 넘기는것이기 때문에 그냥 Twilio에서 받자마자 끊으면 되어서 국제전화라도 큰 부담은 안 생길것 같습니다.
 ### 전화를 해도 Twilio에서 POST를 안해주던 문제
 
 https://www.twilio.com/docs/messaging/guides/how-to-use-your-free-trial-account#making-phone-calls Twilio의 공식문서를 보면 아래와 같은 내용이 있습니다.
-![](../../images/twilio06.png)
+![](twilio06.png)
 **해석**
 
 무료 평가판 전화번호로 전화를 걸거나 받으면 TwiML이 실행되기 전에 짧은 평가판 메시지가 재생됩니다.
