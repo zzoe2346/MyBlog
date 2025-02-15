@@ -4,23 +4,30 @@ tags:
   - JVM
   - Cache
 date: 2024-11-12
-category: 배움
+categories: 트러블슈팅
 ---
 
 ## 어라? 왜 `==` 를 사용했는데 `Long`끼리 제대로 비교가 되지?
+
 Long long1 = 1L;
 Long long2 = 2L;
-long2 == long2 가 true 가 나오는것을 발견하였다. 만약 이것이 `Stirng` 이라면 납득이 간다. 왜냐하면 `String` 은 `String Pool`이란것을 힙영역에 JVM이 만들어 주지 않는가? 하지만 Long 은 그런게 없는것으로 안다. 왜 이런 현상이 벌어지는 걸까?
+long2 == long2 가 true 가 나오는것을 발견하였다. 만약 이것이 `Stirng` 이라면 납득이 간다. 왜냐하면 `String` 은 `String Pool`이란것을 힙영역에 JVM이 만들어 주지 않는가?
+하지만 Long 은 그런게 없는것으로 안다. 왜 이런 현상이 벌어지는 걸까?
+
 ## JVM 의 -127 ~ 128 캐싱
-JVM이 -127 ~ 128 까지의 정수(Integer, Long)은 힙영역에 캐싱하여 같은 수면 같은 참조를 할당해주는다는 사실을 검색을 통해 알게되었다. 
+
+JVM이 -127 ~ 128 까지의 정수(Integer, Long)은 힙영역에 캐싱하여 같은 수면 같은 참조를 할당해주는다는 사실을 검색을 통해 알게되었다.
 
 왜 캐싱을 해주는 것일까? 바로 아래에 답이 있다.
 
-This is based on the assumption that these small values occur much more often than other ints and therefore it makes sense to avoid the overhead of having different objects for every instance (an `Integer` object takes up something like 12 bytes).
+This is based on the assumption that these small values occur much more often than other ints and therefore it makes
+sense to avoid the overhead of having different objects for every instance (an`Integer`object takes up something like 12
+bytes).
 
 -127 ~ 128 정수는 자주 사용이 되므로 공통 인스턴스를 활용해서 새로운 인스턴스 생성을 방지하는것이 더욱 이득이라는 생각에 기반한것이다.
 
 ## 테스트 코드를 통한 검증
+
 ```java
 public class IntegerCachingTest {  
     /**  
@@ -78,5 +85,6 @@ public class IntegerCachingTest {
 ```
 
 ## 참고자료
+
 - https://www.geeksforgeeks.org/java-integer-cache/
 - https://stackoverflow.com/questions/834961/is-the-cpu-wasted-waiting-for-keyboard-input-generic

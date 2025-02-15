@@ -3,7 +3,9 @@ title: Spring MVC 처리 흐름
 tags:
   - Spring
 date: 2024-08-20
+categories: 공부
 ---
+
 ## Spring MVC 처리 흐름
 
 1. **클라이언트 요청**: 클라이언트가 `/products` 엔드포인트에 POST 요청을 보냅니다.
@@ -14,5 +16,6 @@ date: 2024-08-20
 6. **예외 처리**: 예외가 발생하면 `@ControllerAdvice`로 설정된 전역 예외 처리기가 이 예외를 처리합니다.
 
 ## References
+
 - https://docs.spring.io/spring-framework/reference/web/webmvc.html
 - https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html

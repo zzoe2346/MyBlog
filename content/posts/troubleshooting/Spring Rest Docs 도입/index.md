@@ -3,11 +3,18 @@ title: Spring Rest Docs 도입기
 tags:
   - Spring
 date: 2024-08-19
+categories: 트러블슈팅
 ---
+
 ## 선택 이유
-`Swagger`와 `Spring Rest Docs` 중 무엇을 사용할지 고민하던 중, `Spring Rest Docs`가 운영 코드에 문서를 위한 코드를 추가안해도 된다는 것이 매력적이라서 선택하게 되었습니다. 또한, `mockMvc`를 사용해야하고 `build`를 해야하기 때문에 **테스트 기반으로 신뢰할수 있는 문서가 작성**된다는것도 좋았습니다.
+
+`Swagger`와 `Spring Rest Docs` 중 무엇을 사용할지 고민하던 중, `Spring Rest Docs`가 운영 코드에 문서를 위한 코드를 추가안해도 된다는 것이 매력적이라서 선택하게 되었습니다.
+또한, `mockMvc`를 사용해야하고 `build`를 해야하기 때문에 **테스트 기반으로 신뢰할수 있는 문서가 작성**된다는것도 좋았습니다.
+
 ## Spring Rest Docs 사용 방법
+
 ### 1. build.gradle 수정하기
+
 ```gradle
 plugins { 
 	id "org.asciidoctor.jvm.convert" version "3.3.2" 
@@ -61,73 +68,82 @@ build {
 ### 2. Controller 단위 테스트 수행
 
 > [!NOTE]
-> `RestDocumentationRequestBuilders`를 사용해야 `path parameter`까지 문서화가 가능합니다. 만약 `MockMvcRequestBuilders` 를 사용한다면 테스트 통과가 실패 할 수 있습니다.
+> `RestDocumentationRequestBuilders`를 사용해야 `path parameter`까지 문서화가 가능합니다. 만약 `MockMvcRequestBuilders` 를 사용한다면 테스트 통과가 실패
+> 할 수 있습니다.
 
 이 부분은 공식문서를 참고 https://docs.spring.io/spring-restdocs/docs/current/reference/htmlsingle/#documenting-your-api
+
 ### 예시
 
 ```java
-@WebMvcTest(controllers = WishController.class)  
-@AutoConfigureRestDocs  
-@DisplayName("위시 컨트롤러 단위테스트")  
-class WishControllerTest {  
-  
-    private static final String URL = "/api/wishes";  
-    @MockBean  
-    private TokenService tokenService;  
-    @MockBean  
-    private JpaMetamodelMappingContext jpaMetamodelMappingContext;  
-    @MockBean  
-    private AuthInterceptor authInterceptor;  
-    @Autowired  
-    private MockMvc mockMvc;  
-    @Autowired  
-    private ObjectMapper objectMapper;  
-    @MockBean  
-    private WishService wishService;  
-  
-    @Test  
-    @DisplayName("위시리스트 상품 추가")  
-    void addProductToWishList() throws Exception {  
+
+@WebMvcTest(controllers = WishController.class)
+@AutoConfigureRestDocs
+@DisplayName("위시 컨트롤러 단위테스트")
+class WishControllerTest {
+
+    private static final String URL = "/api/wishes";
+    @MockBean
+    private TokenService tokenService;
+    @MockBean
+    private JpaMetamodelMappingContext jpaMetamodelMappingContext;
+    @MockBean
+    private AuthInterceptor authInterceptor;
+    @Autowired
+    private MockMvc mockMvc;
+    @Autowired
+    private ObjectMapper objectMapper;
+    @MockBean
+    private WishService wishService;
+
+    @Test
+    @DisplayName("위시리스트 상품 추가")
+    void addProductToWishList() throws Exception {
         //Given  
-        when(authInterceptor.preHandle(any(), any(), any())).thenReturn(true);  
-        WishRequest request = new WishRequest(1L, null);  
-  
+        when(authInterceptor.preHandle(any(), any(), any())).thenReturn(true);
+        WishRequest request = new WishRequest(1L, null);
+
         //When  
-        mockMvc.perform(RestDocumentationRequestBuilders.post(URL)  
-                        .header(HttpHeaders.AUTHORIZATION, "Bearer validTokenValue")  
-                        .contentType(MediaType.APPLICATION_JSON)  
-                        .content(objectMapper.writeValueAsString(request)))  
+        mockMvc.perform(RestDocumentationRequestBuilders.post(URL)
+                        .header(HttpHeaders.AUTHORIZATION, "Bearer validTokenValue")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
                 //Then  
-                .andExpect(  
-                        status().isOk()  
-                )  
-                .andDo(document("wish-add",  
-                                Preprocessors.preprocessRequest(Preprocessors.prettyPrint()),  
-                                Preprocessors.preprocessResponse(Preprocessors.prettyPrint()),  
-  
-                                requestHeaders(  
-                                        headerWithName("Authorization").description("Authorization: Bearer ${ACCESS_TOKEN} +\n인증방식, 액세스 토큰으로 인증요청")  
-                                ),  
-                                requestFields(  
-                                        fieldWithPath("productId").type(JsonFieldType.NUMBER).description("위시에 추가할 상품 ID"),  
-                                        fieldWithPath("quantity").type(JsonFieldType.NULL).description("이거 무시하시면 됩니다").optional()  
-                                )  
-                        )  
-                );  
+                .andExpect(
+                        status().isOk()
+                )
+                .andDo(document("wish-add",
+                                Preprocessors.preprocessRequest(Preprocessors.prettyPrint()),
+                                Preprocessors.preprocessResponse(Preprocessors.prettyPrint()),
+
+                                requestHeaders(
+                                        headerWithName("Authorization").description("Authorization: Bearer ${ACCESS_TOKEN} +\n인증방식, 액세스 토큰으로 인증요청")
+                                ),
+                                requestFields(
+                                        fieldWithPath("productId").type(JsonFieldType.NUMBER).description("위시에 추가할 상품 ID"),
+                                        fieldWithPath("quantity").type(JsonFieldType.NULL).description("이거 무시하시면 됩니다").optional()
+                                )
+                        )
+                );
     }
 ```
 
 ### 3. 본격적인 API 문서 작성
+
 ### 3.1 snippets 생성
+
 테스트에 통과하면 자동으로 `/Users/seonghunjeong/spring-gift-point/build/generated-snippets` 이 경로에 `snippets` 가 생성됩니다.
 ![[../images/스크린샷 2024-08-14 17.05.00.png]]
 
 ### 3.2 snippets으로 \*.adoc 문서 작성
+
 adoc이 Asciidoctor의 줄임말.
 https://docs.spring.io/spring-restdocs/docs/current/reference/htmlsingle/#working-with-asciidoctor 이 문서를 참고하면 된다.
+
 ### 예시
+
 아래와 같이 adoc문서를 작성하면
+
 ```adoc
 == 위시 조회  
 === 기본정보  
@@ -153,8 +169,8 @@ operation::wish-get[snippets='http-request,http-response']
 ![[../images/스크린샷 2024-08-14 17.15.31.png]]
 ![[../images/스크린샷 2024-08-14 17.15.50.png]]
 
-
 ## References
+
 - [Spring Rest Docs공식문서](https://docs.spring.io/spring-restdocs/docs/current/reference/htmlsingle/#introduction)
 - [Asciidoctor 공식문서](https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/)
 - [도움 받은 유튜브](https://www.youtube.com/watch?v=LEqaUEcWH7M)
