@@ -1,8 +1,10 @@
 ---
 title: 카카오 테크 캠퍼스 아이디어톤 참여 후기
 date: 2024-08-25
-categories:
-  - 경험
+categories: 경험
+tags:
+  - event
+summary: 여름에 참여한 아이디어톤 후기
 ---
 
 ## 1. 아이디어톤 참여 계기

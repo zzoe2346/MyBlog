@@ -2,6 +2,7 @@
 title: JWT 기본
 tags:
   - Security
+  - JWT
 date: 2024-05-22
 categories:
   - 공부

@@ -133,7 +133,7 @@ class WishControllerTest {
 ### 3.1 snippets 생성
 
 테스트에 통과하면 자동으로 `/Users/seonghunjeong/spring-gift-point/build/generated-snippets` 이 경로에 `snippets` 가 생성됩니다.
-![[../images/스크린샷 2024-08-14 17.05.00.png]]
+![](스크린샷%202024-08-14%2017.05.00.png)
 
 ### 3.2 snippets으로 \*.adoc 문서 작성
 
@@ -165,10 +165,9 @@ operation::wish-get[snippets='http-request,http-response']
 ```
 
 아래 스크린샷 같이 웹문서를 자동으로 만들어줍니다.
-![[../images/스크린샷 2024-08-14 17.14.30.png]]
-![[../images/스크린샷 2024-08-14 17.15.31.png]]
-![[../images/스크린샷 2024-08-14 17.15.50.png]]
-
+![](스크린샷%202024-08-14%2017.14.30.png)
+![](스크린샷%202024-08-14%2017.15.31.png)
+![](스크린샷%202024-08-14%2017.15.50.png)
 ## References
 
 - [Spring Rest Docs공식문서](https://docs.spring.io/spring-restdocs/docs/current/reference/htmlsingle/#introduction)

@@ -3,8 +3,7 @@ title: "@Configuartion의 원리"
 tags:
   - Spring
 date: 2024-08-28
-categories:
-  - 공부
+categories: 공부
 ---
 
 ## 공부 계기
@@ -37,11 +36,13 @@ categories:
 
 #### `RestClientBuilderConfig` 클래스
 
-java
 
-코드 복사
+```java
+@Configuration public class RestClientBuilderConfig {      private static final int CONNECT_TIMEOUT_MILLISECOND = 2000;     private static final int READ_TIMEOUT_MILLISECOND = 2000;      @Bean     public RestClient.Builder restClientBuilder() {         return RestClient.builder()                 .requestFactory(getClientHttpRequestFactory());     }      private ClientHttpRequestFactory getClientHttpRequestFactory() {         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();         factory.setConnectTimeout(Duration.ofMillis(CONNECT_TIMEOUT_MILLISECOND));         factory.setReadTimeout(Duration.ofMillis(READ_TIMEOUT_MILLISECOND));          return factory;     } }
+```
 
-`@Configuration public class RestClientBuilderConfig {      private static final int CONNECT_TIMEOUT_MILLISECOND = 2000;     private static final int READ_TIMEOUT_MILLISECOND = 2000;      @Bean     public RestClient.Builder restClientBuilder() {         return RestClient.builder()                 .requestFactory(getClientHttpRequestFactory());     }      private ClientHttpRequestFactory getClientHttpRequestFactory() {         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();         factory.setConnectTimeout(Duration.ofMillis(CONNECT_TIMEOUT_MILLISECOND));         factory.setReadTimeout(Duration.ofMillis(READ_TIMEOUT_MILLISECOND));          return factory;     } }`
+
+
 
 - 이 클래스는 Spring 컨테이너에 의해 초기화될 때`RestClient.Builder`빈을 생성하고 설정합니다.
 - `restClientBuilder()`메서드가 호출되어`RestClient.Builder`객체가 생성되고, 이는`RestClient`설정에 필요한`ClientHttpRequestFactory`를 포함합니다.

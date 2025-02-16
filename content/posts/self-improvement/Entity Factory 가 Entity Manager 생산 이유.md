@@ -1,7 +1,7 @@
 ---
 title: Entity Factory 가 Entity Manager 생산 이유
 tags:
-  - 의문사항/JPA
+  - JPA
 date: 2024-10-30
 categories:
   - 공부

@@ -1,8 +1,7 @@
 ---
 title: 개발자 이력서 전략
 date: 2025-02-14
-categories:
-  - 커리어
+categories: 커리어
 tags:
   - Career
 summary: 이력서 팁 모음, 내 이력서 개선 상황
