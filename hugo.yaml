@@ -147,3 +147,9 @@ markup:
     # style: monokai
 
 disablePathToLower: true
+
+module:
+  mounts:
+    - excludeFiles: posts/templates/*
+      source: content
+      target: content
