@@ -2,6 +2,7 @@
 title: preflight request관련 CORS 에러
 tags:
   - HTTP
+  - Troubleshooting
 date: 2024-07-30
 categories: 트러블슈팅
 ---

@@ -2,6 +2,8 @@
 title: Spring Rest Docs 도입기
 tags:
   - Spring
+  - Troubleshooting
+  - RestDocs
 date: 2024-08-19
 categories: 트러블슈팅
 ---

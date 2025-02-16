@@ -1,5 +1,5 @@
 ---
-title: Entity Factory 가 Entity Manager 생산 이유
+title: Entity Factory가 Entity Manager를 생산하는 이유
 tags:
   - JPA
 date: 2024-10-30

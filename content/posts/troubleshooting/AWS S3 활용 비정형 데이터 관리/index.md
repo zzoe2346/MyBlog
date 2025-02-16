@@ -3,9 +3,10 @@ title: AWS S3를 활용한 비정형 데이터 저장 및 관리 (서버 부담 
 date: 2025-02-13
 categories: 트러블슈팅
 tags:
-  - MCT
   - S3
   - Optimization
+  - Troubleshooting
+  - AWS
 ---
 
 ## 구현 배경

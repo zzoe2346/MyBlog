@@ -2,6 +2,7 @@
 title: .gitignore 사용시 테스트 관련 주의점
 tags:
   - Git
+  - Troubleshooting
 date: 2024-08-17
 categories: 트러블슈팅
 ---

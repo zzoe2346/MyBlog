@@ -2,6 +2,8 @@
 title: 깃허브 협업을 위한 레포지토리 준비
 tags:
   - 협업
+  - Github
+  - Troubleshooting
 date: 2024-08-11
 categories: 트러블슈팅
 summary: 협업 준비위한 세팅 방법을 기록

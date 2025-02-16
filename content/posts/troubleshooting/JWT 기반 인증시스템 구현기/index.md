@@ -3,7 +3,7 @@ title: JWT가진 쿠키 인증을위한 JwtFilter 구현기
 date: 2025-02-13
 tags:
   - JWT
-  - MCT
+  - Troubleshooting
 categories: 트러블슈팅
 ---
 

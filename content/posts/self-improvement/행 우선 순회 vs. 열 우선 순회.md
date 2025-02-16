@@ -2,6 +2,7 @@
 title: 행 우선 순회 VS 열 우선 순회
 tags:
   - Java
+  - Memory
 date: 2024-06-13
 categories:
   - 공부

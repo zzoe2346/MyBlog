@@ -3,6 +3,7 @@ title: 토스-MSA 전환기
 tags:
   - MSA
   - SystemDesign
+  - Toss
 date: 2024-05-27
 categories:
   - 공부

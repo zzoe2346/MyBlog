@@ -2,7 +2,7 @@
 title: Twilio 활용, 수신 번호를 스프링 서버로 전달 기능 구현
 tags:
   - Twilio
-  - Project
+  - Troubleshooting
 date: 2024-08-18
 categories: 트러블슈팅
 ---

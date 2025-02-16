@@ -2,6 +2,8 @@
 title: 토스-DB 과부하 방지 팁
 tags:
   - DB
+  - Study
+  - Toss
 date: 2024-05-11
 categories:
   - 공부

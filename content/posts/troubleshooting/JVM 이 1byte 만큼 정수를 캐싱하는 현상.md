@@ -3,6 +3,7 @@ title: JVM 이 1byte 만큼 정수를 캐싱하는 현상
 tags:
   - JVM
   - Cache
+  - Troubleshooting
 date: 2024-11-12
 categories: 트러블슈팅
 ---

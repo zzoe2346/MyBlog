@@ -2,6 +2,8 @@
 title: 깃허브 활용한 협업 방법
 tags:
   - 협업
+  - Troubleshooting
+  - Github
 date: 2024-08-12
 categories: 트러블슈팅
 summary: 팀원들에게 협업 방법들을 설명하기 위한 자료

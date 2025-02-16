@@ -2,6 +2,7 @@
 title: 행 수준 락(row-level locking)
 tags:
   - DB
+  - Lock
 date: 2024-05-22
 categories:
   - 공부

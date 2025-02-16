@@ -4,6 +4,7 @@ date: 2025-02-16
 tags:
   - SpringSecurity
   - Oauth
+  - Troubleshooting
 categories: 트러블슈팅
 summary: Spring Security 첫 사용
 ---

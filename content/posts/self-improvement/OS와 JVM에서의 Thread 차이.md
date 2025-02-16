@@ -2,9 +2,11 @@
 tags:
   - OS
   - Thread
+  - JVM
 date: 2024-05-19
 categories:
   - 공부
+title: OS와 JVM에서의 Thread 차이
 ---
 
 ## 자바가 관리하는 스레드 (Java Thread)

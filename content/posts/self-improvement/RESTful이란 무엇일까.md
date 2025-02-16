@@ -1,7 +1,8 @@
 ---
-title: RESTful 이란 무엇일까
+title: RESTful이란 무엇일까
 tags:
   - Web
+  - RESTful
 date: 2024-10-31
 categories: 공부
 ---
