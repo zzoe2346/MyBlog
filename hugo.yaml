@@ -150,6 +150,6 @@ disablePathToLower: true
 
 module:
   mounts:
-    - excludeFiles: posts/templates/*
+    - excludeFiles: [posts/templates/*, posts/draft/*]
       source: content
       target: content

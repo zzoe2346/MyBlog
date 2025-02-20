@@ -38,6 +38,8 @@ where
 그리고 어느정도 MVCC에 관해 공부하고 나서는 테스트 코드를 통해 직접 검증하는 과정을 거쳐보았다. 쉬운코드님이 제시해준 예제를 직접 재현해보았고, 나만의 테스트 케이스를 설계하여 직접 코드로 테스트를 수행해
 보았다.
 
+아쉬운점이 있다면 lost update 같은 
+
 대표적인 전략은 이렇다.
 
 1. Thread 1은 특정 데이터를 비관적 락을 통해 락을 걸고 sleep을 활용하여 계속 락을 유지한다.
@@ -46,35 +48,40 @@ where
 예를 들자면 아래와 테스트 코드로 실시하였다. 이 [링크]()에 방문하면 관련된 모든 코드를 볼 수 있다.
 
 ```java
-
-@Test
-public void testTx1LockTx2Read() throws InterruptedException {
-    ExecutorService executorService = Executors.newFixedThreadPool(2);
-    CountDownLatch latch = new CountDownLatch(2);
-    executorService.submit(() -> {
-        try {
-            itemService.processWithLockDuring5Sec(itemId);
-        } catch (Exception e) {
-            System.out.println("스레드 1 예외 발생: " + e.getMessage());
-        } finally {
-            latch.countDown();
-        }
-    });
-
-    executorService.submit(() -> {
-        try {
-            Thread.sleep(100); // 첫 번째 트랜잭션이 락을 걸도록 유도  
-            itemService.processWithLock(itemId);
-        } catch (Exception e) {
-            System.out.println("스레드 2 예외 발생: " + e.getMessage());
-        } finally {
-            latch.countDown();
-        }
-    });
-    executorService.awaitTermination(6, TimeUnit.SECONDS);
-    System.out.println("최종 남은 수량(8이면 정상): " + itemRepository.findById(itemId).get().getQuantity());
+@Test  
+@DisplayName("t1, t2 둘다 락을 필요로 하는 메서드를 실행. t1이 먼저 락을 가졌을때 t2는 t1이 락을 반환할 때까지 Blocking 된다. 여기서 동시성 관련 문제는 발생하지 않는다. 어떻게 보면 Serializing 방식과 유사.")  
+public void testTx1LockTx2Read() throws InterruptedException {  
+    //given  
+    ExecutorService executorService = Executors.newFixedThreadPool(2);  
+    CountDownLatch latch = new CountDownLatch(2);  
+  
+    executorService.submit(() -> {  
+        try {  
+            itemService.forUpdateLockAndSubtractOneAfterLockDuring5Sec(itemId,1);  
+        } catch (Exception e) {  
+            System.out.println("스레드 1 예외 발생: " + e.getMessage());  
+        } finally {  
+            latch.countDown();  
+        }  
+    });  
+  
+    executorService.submit(() -> {  
+        try {  
+            Thread.sleep(100); // 첫 번째 트랜잭션이 락 가지는데 성공하도록 대기  
+            itemService.forUpdateLockAndSubtractOne(itemId,2);  
+        } catch (Exception e) {  
+            System.out.println("스레드 2 예외 발생: " + e.getMessage());  
+        } finally {  
+            latch.countDown();  
+        }  
+    });  
+  
+    //when  
+    executorService.awaitTermination(6, TimeUnit.SECONDS);  
+  
+    //then  
+Assertions.assertThat(itemRepository.findById(itemId).get().getQuantity()).isEqualTo(8);  
 }
-
 ```
 
 ## Result
