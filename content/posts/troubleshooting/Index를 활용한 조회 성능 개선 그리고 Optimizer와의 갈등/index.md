@@ -1,5 +1,5 @@
 ---
-title: Index를 활용한 조회 성능 개선
+title: Index를 활용한 조회 성능 개선 그리고 Optimizer와의 갈등
 tags:
   - DB
   - Index

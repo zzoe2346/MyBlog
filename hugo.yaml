@@ -2,7 +2,7 @@ baseURL: https://jeongseonghun.com/
 languageCode: kr
 title: Seonghun Blog
 theme: [ "PaperMod" ]
-paginate: 5
+paginate: 20
 
 enableRobotsTXT: true
 buildDrafts: false
