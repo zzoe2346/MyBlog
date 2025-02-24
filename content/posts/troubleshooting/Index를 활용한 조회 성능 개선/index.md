@@ -1,5 +1,5 @@
 ---
-title: Index를 활용한 조회 성능 개선 그리고 Optimizer와의 갈등
+title: Index를 활용한 조회 성능 개선
 tags:
   - DB
   - Index
@@ -7,6 +7,7 @@ tags:
   - Troubleshooting
 date: 2024-10-26
 categories: 트러블슈팅
+summary: 인덱스, 복합 인덱스 활용하면 조회가 얼마나 빨라지는가?
 ---
 
 ## 문제 정의
