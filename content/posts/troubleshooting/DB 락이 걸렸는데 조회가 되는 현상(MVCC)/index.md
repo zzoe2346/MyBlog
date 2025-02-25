@@ -39,7 +39,7 @@ Lock-Based Concurrency Control에서는 최초게 제가 생각처럼 Lock이 �
 
 ### MVCC : Lock과 무관한 조회 & 일관성있는 읽기
 
-Lock-Based Concurrency Control에서는 Lock이 걸린 데이터를 조회 시도시 block이되어 처리량이 줄지만 mvcc는 특정 시점의 데이터베이스 상태를 찍은(스냅샷)것을 활용하여 트랜잭션이 끝날때 까지 그 스냅샷만 조회함으로서 다른 트랜잭션에서 커밋이 되든말든 일관성있게 읽을수 있습니다.(repeatable read이 되는것) 
+Lock-Based Concurrency Control에서는 Lock이 걸린 데이터를 조회 시도하면 block이되어 처리량이 줄지만 MVCC는 특정 시점의 데이터베이스 상태를 찍은(스냅샷)것을 활용하여 트랜잭션이 끝날때 까지 그 스냅샷만 조회함으로서 다른 트랜잭션에서 커밋이 되든말든 일관성있게 읽을수 있습니다.(repeatable read이 되는것) 
 
 - MVCC는 커밋된 데이터만 읽는다
 - 실시간 최신 데이터보다 특정 시점의 일관된 데이터를 필요로 할 때 MVCC가 유리
