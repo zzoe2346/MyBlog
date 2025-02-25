@@ -15,7 +15,7 @@ summary:
 	- 작업 브랜치는 각자 생성하고 그 브랜치를 Weekly 브랜치에 PR후, 코드리뷰 후 Approve를 받아 머지시킴
 	- 커밋 로그를 깔끔히 관리하기 위해 Squash Merge를 활용하기로 결정
 - 문제 발생
-	- Weekly -> Develop 머지시 All Conflict 가 발생했고 당연히 Develop -> Master 머지도 불가했다.
+	- Weekly -> Develop 머지시 All Conflict 가 발생했고 당연히 Develop -> Master 머지도 불가
 
 ## 문제 분석
 - Squash Merge 시행시 기존 커밋 히스토리가 하나의 커밋으로 합쳐지며 새로운 히스토리 하나로 통합된다
