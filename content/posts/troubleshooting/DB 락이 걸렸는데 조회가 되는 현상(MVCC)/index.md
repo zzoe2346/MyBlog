@@ -33,7 +33,7 @@ InnoDB의 MVCC(Multi Versioning Concurrency Control) 기술 때문이라는 것�
 
 ![](Pasted%20image%2020250218193728.png#center)
 ### Lock-Based Concurrency Control만 가정하면 나의 가정이 맞다
-Lock-Based Concurrency Control에서는 최초게 제가 생각처럼 Lock이 되면 조회가 안되고 block이일어나는게 맞습니다.
+Lock-Based Concurrency Control에서는 최초의 제 생각처럼 Lock이 되면 조회가 안되고 block이일어나는게 맞습니다.
 
 **하지만** MySQL의 Storage Engine인 InnoDB는 Lock으로 인한 처리량 저하로 인한 성능 저하를 해소하기 위해 MVCC 기법을 동시성 관리를 하는데 추가 하였고, 덕분에 Lock이 걸린 상태의 데이터도 조회가 가능한것입니다.
 
@@ -55,7 +55,7 @@ Lock-Based Concurrency Control에서는 Lock이 걸린 데이터를 조회 시�
 - dirty read, non repeatable read 문제 해결
 
 단점
-- 스냅샷같은 요소때문에 메모리 자원 더 요구리소스 사용 증가: Undo Log와 버전 관리로 저장 공간과 계산 비용 증가
+- 스냅샷 등의 요소 때문에 메모리 리소스 사용 증가: Undo Log와 버전 관리로 저장 공간과 계산 비용 증가
 - 실시간성 부족: 스냅샷 기반이라 최신 데이터를 보장하지 않음
 
 ### 정합성 보장: 개발자의 역량이 필요
@@ -76,10 +76,10 @@ MySQL의 경우, 데이터의 정합성을 보장하고 싶다면 꼭 망각하�
 - MySQL에서는 Isolation Level조절을 통한 정합성 문제해결이 아니라 Lock을 잘 챙겨줘야함
 
 **PostgreSQL의 경우**
--  Isolation Level이 reapeatble read 일때, 같은 데이터에 먼저 update한 tx가 커밋되면 이후 tx는 rollback 된다. rollback으로 이상현상을 방지함. 이후 재시도등의 로직 필요
+-  Isolation Level이 repeatable read 일때, 같은 데이터에 먼저 update한 tx가 커밋되면 이후 tx는 rollback 된다. rollback으로 이상현상을 방지함. 이후 재시도등의 로직 필요
 
 ### 테스트 코드로 MVCC 확인하기
-어느정도 MVCC에 관해 공부하고 나서는 테스트 코드를 통해 직접 검증해보았습니다. 쉬운코드님이 제시해준 예제를 직접 재현해보았고, 나만의 테스트 케이스를 설계하여 코드로 테스트를 수행해보았습니다.
+어느정도 MVCC에 관해 공부하고 나서는 테스트 코드를 통해 직접 검증해보았습니다. 쉬운코드님이 제시해준 예제를 직접 재현해보았고, 저만의 테스트 케이스를 설계하여 코드로 테스트를 수행해보았습니다.
 
 `ExecutorService`로 멀티스레드 환경을 보장하였고, sleep으로 장기간 Lock상황을 재현하여 Lock된 데이터를 조회하고 Lock을 건 경우와 안 건 경우의 정합성 관련 이슈도 같이 다루어 보았습니다.
 
@@ -350,7 +350,7 @@ public class MVCCTest {
 ```
 
 ## Result
-이번 학습을 통해 Lock을 설정하는 것만으로 DBMS가 모든 동시성 문제를 해결해줄 것이라는 안일한 생각을 버리게 되었습니다. 동시에 DBMS를 사용하는 개발자로서 기본적인 지식이 부족했음을 뼈저리게 느꼈습니다. 이러한 이해 없이 동시성 이슈에 노출될 가능성이 큰 상황에서 데이터 정합성이 매우 중요한 기능을 구현했다면, 상상 이상의 버그 발생 가능성을 초래했을 것입니다. 
+이번 학습을 통해 Lock을 설정하는 것만으로 DBMS가 모든 동시성 문제를 해결해 줄 것이라는 안일한 생각을 버리게 되었습니다. 동시에 DBMS를 사용하는 개발자로서 기본적인 지식이 부족했음을 뼈저리게 느꼈습니다. 이러한 이해 없이 동시성 이슈에 노출될 가능성이 큰 상황에서 데이터 정합성이 매우 중요한 기능을 구현했다면, 정합성 불일치로 인한 문제를 야기했을 것입니다.
 ## 참고자료
 
 - https://dev.mysql.com/doc/refman/8.4/en/innodb-multi-versioning.html
