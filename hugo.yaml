@@ -77,20 +77,16 @@ params:
   homeInfoParams:
     Title: "🍀 Steady Growth"
     Content: >
-      👋 방문해주셔서 감사합니다!
-      
-      - ☞ 개발자로서 트러블슈팅, 자기계발, 커리어, 기능개발, 행사후기 등의 글을 올리고 있습니다.    
-      
-      - ☞ 우측 상단의 메뉴를 활용하시면 체계적으로 목록화된 글모음을 보실 수 있습니다.      
+      👋 반갑습니다! 오늘 즐거운 하루 보내세요!
 
   socialIcons:
 
-    - name: email
-      url: "https://stackoverflow.com"
+#    - name: email
+#      url: "https://stackoverflow.com"
     - name: github
       url: "https://github.com/zzoe2346"
-    - name: linkedin
-      url: "https://x.com/"
+#    - name: linkedin
+#      url: "https://x.com/"
 
   analytics:
     google:
