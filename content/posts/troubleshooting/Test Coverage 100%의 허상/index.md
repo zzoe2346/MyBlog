@@ -19,6 +19,7 @@ MCT 프로젝트를 막 마무리 하였을 때, 테스트 커버리지는 10%�
 기능 완성 후 일주일쯤 지나 리팩토링을 시작하면서 믿음직한 코드를 만들고 싶다는 욕심이 생겼습니다. 그러던 중 유튜브 알고리즘의 선택을 받은 [토스ㅣSLASH 21 - 테스트 커버리지 100%](https://www.youtube.com/watch?v=jdlBu2vFv58&t=932s&ab_channel=%ED%86%A0%EC%8A%A4) 영상을 보게 됐고, 관련 책도 읽으며 "나도 100%를 달성해보고 싶다"는 의지가 생겼습니다. 당시 저는 이런 기대를 품고 있었습니다.
 
 - 버그 없는 코드를 보장받을 수 있을 거라는 기대
+
 사실 [토스ㅣSLASH 21 - 테스트 커버리지 100%](https://www.youtube.com/watch?v=jdlBu2vFv58&t=932s&ab_channel=%ED%86%A0%EC%8A%A4) 영상에서 강연자께서 100%라도 버그는 발생한다고 말씀하셨지만 토스라는 복잡한 비즈니스 로직을 다루는것과 비교해서 제 서비스의 코드는 무척 단순할것이기 때문에 100% 커버리지를 달성하면 이정도의 코드는 버그 방지가 확실히 되지 않을까 하는 생각을 가지고 있었습니다.
 
 ## 100%를 향한 여정에서 한 일
@@ -68,6 +69,36 @@ public String getJwtFromCookie(HttpServletRequest request) {
 
 단위 테스트를 살펴보니, "쿠키가 없는 경우"라는 엣지 케이스를 아예 작성하지 않았더군요. 그런데도 커버리지는 100%를 유지했습니다. 왜냐하면 커버리지 도구는 단순히 코드 라인이 실행됐는지 여부만 측정하기 때문입니다. 제가 테스트에서 request.getCookies()가 null인 상황을 다루지 않았음에도, 다른 케이스에서 코드가 "읽히기만" 하면 커버리지가 올라가더군요. 결국 이 사건은 커버리지 수치가 버그를 막아주지 않는다는 명백한 증거였습니다.
 
+이후 `null`을 체크하는 로직을 추가해 버그 수정은 하였고 이에대한 단위 테스트도 추가하였습니다.
+```java
+public String getJwtFromCookie(HttpServletRequest request) {  
+    if(request.getCookies() == null) {  
+        return null;  
+    }  
+    for (Cookie cookie : request.getCookies()) {  
+        if (cookie.getName().equals(cookieName)) {  
+            return cookie.getValue();  
+        }  
+    }  
+    return null;  
+}
+```
+```java
+@Test  
+@DisplayName("요청에 쿠키가 아예 없는경우 null을 반환한다.")  
+void getJwtFromCookie_WhenRequestNotContainCookie() {  
+    // given  
+    HttpServletRequest request = mock(HttpServletRequest.class);  
+    given(request.getCookies()).willReturn(null);  
+  
+    // when  
+    String extractedToken = cookieUtil.getJwtFromCookie(request);  
+  
+    // then  
+    assertThat(extractedToken).isNull();  
+}
+```
+
 +++ 또 드는 생각은 저 메서드가 SRP를 너무나 위반했다는것이 보이는거 같습니다. `getJwtFromCookie`에서 'request에서 추출', '추출된 쿠키를 검증한다'라는 2개의 꽤 큰 책임이 동시에 있어보입니다. 책임 분리를 실시하여 각 책임을 작게 해주면 이런 엣지 케이스도 더 잘 보였을거 같다라는 생각이 듭니다.
 
 ## 커버리지의 한계
@@ -86,4 +117,4 @@ public String getJwtFromCookie(HttpServletRequest request) {
 대강 100% 채우려고 아무생각없이 테스트 코드를 작성할 거면 안하는게 맞다는 생각이 들었습니다. 테스트 코드도 결국은 '코드'입니다. 수치에 급급해 대충 작성한 부분을 반성하며, 이후 리팩토링으로 테스트의 질을 높여가야겠다는 다짐을 했습니다.
 ## 마무리
 
-시작할 때는 Security 의존성 문제와 지루한 작업에 "과연 가능할까?"라는 걱정도 있었지만, 결국 해냈습니다. 이 과정에서 코드와 테스트에 대해 많은 걸 배웠고, 100%라는 숫자가 목표가 아니라 도구임을 깨달았습니다. 진짜 중요한 건 테스트로 얻는 신뢰와 안정감, 그리고 이를 유지하려는 끊임없는 노력입니다. 앞으로는 100%라는 기준을 넘어, 더 의미 있고 실질적인 테스트를 작성하는 데 집중하려 합니다
+시작할 때는 Security 의존성 문제와 지루한 작업에 "과연 가능할까?"라는 걱정도 있었지만, 결국 해냈습니다. 이 과정에서 코드와 테스트에 대해 많은 걸 배웠고, 100%라는 숫자가 목표가 아니라 도구임을 깨달았습니다. 진짜 중요한 건 테스트로 얻는 신뢰와 안정감, 그리고 이를 유지하려는 끊임없는 노력입니다. 앞으로는 100%라는 기준을 넘어, 더 의미 있고 실질적인 테스트를 작성하는 데 집중하려 합니다.
