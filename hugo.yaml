@@ -75,14 +75,21 @@ params:
 
   # home-info mode
   homeInfoParams:
-    Title: "Up!"
+    Title: "어떤 분야에서 전문가가 되는 방법"
     Content: >
-      - **How to become expert at thing:**
-        1. iteratively take on concrete projects and accomplish them depth wise, learning “on demand” (ie don’t learn bottom up breadth wise)
-        2. teach/summarize everything you learn in your own words
-        3. only compare yourself to younger you, never to others
+      [1] 구체적인 프로젝트를 반복적으로 수행하면서 깊이 있게 완성하고, 필요한 것을 그때그때 배우기
       
-      — Andrej Karpathy (@karpathy) November 7, 2020
+      
+      (즉, 밑바닥부터 넓게 배우는 방식이 아니라, 필요할 때 배우는 방식)
+      
+      
+      [2] 배운 모든 것을 자신의 말로 정리하고 가르쳐보기
+      
+      
+      [3] 다른 사람과 비교하지 말고, 오직 과거의 자신과만 비교하기
+  
+  
+         —Andrej Karpathy (@karpathy) November 7, 2020
   
 
   socialIcons:
