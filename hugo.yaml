@@ -54,9 +54,9 @@ params:
     safari_pinned_tab: "<link / abs url>"
 
   label:
-    text: "Seonghun BLOG"
-  #    icon: /logo.png
-  #    iconHeight: 20
+    text: "Seonghun's Blog"
+    #icon: /logo.png
+    #iconHeight: 20
 
   # profile-mode
   profileMode:
