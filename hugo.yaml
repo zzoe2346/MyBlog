@@ -1,6 +1,6 @@
 baseURL: https://jeongseonghun.com/
 languageCode: kr
-title: Seonghun Blog
+title: Seonghun's Blog
 theme: [ "PaperMod" ]
 paginate: 20
 
@@ -94,12 +94,14 @@ params:
 
   socialIcons:
 
-#    - name: email
-#      url: "https://stackoverflow.com"
+    - name: email
+      url: "tjdgns5506@gmail.com"
     - name: github
       url: "https://github.com/zzoe2346"
-#    - name: linkedin
-#      url: "https://x.com/"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/jsh95/"
+    - name: wiki
+      url: "https://wiki.jeongseonghun.com/"
 
   analytics:
     google:
@@ -110,8 +112,8 @@ params:
       SiteVerificationTag: "XYZabc"
 
   cover:
-    hidden: true # hide everywhere but not in structured data
-    hiddenInList: true # hide on list pages and home
+    hidden: false # hide everywhere but not in structured data
+    hiddenInList: false # hide on list pages and home
     hiddenInSingle: true # hide on single page
 
   #  editPost:

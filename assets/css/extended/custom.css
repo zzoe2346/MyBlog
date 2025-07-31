@@ -1,0 +1,10 @@
+:root {
+    --main-width: 850px; /* 기본 720px에서 늘림 */
+    --content-gap: 40px;   /* 여백 조정 */
+}
+
+.entry-cover img {
+    max-height: 200px; /* 원하는 높이로 조절 */
+    object-fit: contain;
+    width: 100%;
+}
